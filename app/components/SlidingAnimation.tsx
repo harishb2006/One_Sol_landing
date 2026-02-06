@@ -24,43 +24,43 @@ const SECTIONS: SectionData[] = [
  
   {
     id: 1,
-    title: "Automated Screening",
+    title: "Automated Candidate Screening",
     bgColor: "#D1C4FF", // Light Purple from image 2
     accentColor: "#9D84F5",
     gridColor: "rgba(100, 0, 200, 0.1)",
     steps: [
-      { label: "New Application", status: "active" },
-      { label: "New Application", status: "active" },
-      { label: "New Application", status: "active" },
-      { label: "New Application", status: "active" },
+       { label: "New Application", status: "active" },
+      { label: "AI Resume Rank", status: "active" },
+      { label: "Auto-Screening Quiz", status: "active" },
+      { label: "Interview Auto-Schedule", status: "active" },
     ],
   },
 
  {
     id: 2,
-    title: "Automated Screening",
+    title: "Multi-stage Pipeline ",
     bgColor: "#B3DFFF", // Light Blue from image 1
     accentColor: "#59B2F8", 
     gridColor: "rgba(0, 100, 200, 0.1)",
     steps: [
-      { label: "New Application", status: "active" },
-      { label: "New Application", status: "active" },
-      { label: "New Application", status: "active" },
-      { label: "New Application", status: "active" },
+      { label: "AI Video Interview", status: "active" },
+      { label: "Skill Assessment", status: "inactive" },
+      { label: "Manager Round", status: "inactive" },
+      { label: "Instant Offer Letter", status: "inactive" },
     ],
   },
 
   {
     id: 3,
-    title: "Automated Screening",
+    title: "Passive Rearrangement",
     bgColor: "#C4B5FD", // Deep Purple from image 3
     accentColor: "#8B5CF6",
     gridColor: "rgba(100, 0, 200, 0.2)",
     steps: [
-      { label: "New Application", status: "active" },
-      { label: "AI Resume Rank", status: "active" },
-      { label: "Auto screening quiz", status: "active" },
-      { label: "Interview auto-schedule", status: "active" },
+      { label: "Archive Borderline", status: "active" },
+      { label: "3-Month Nurture", status: "inactive" },
+      { label: "New Role Matching", status: "inactive" },
+      { label: "Fast-track Invite", status: "inactive" },
     ],
   },
 ];
