@@ -1,6 +1,11 @@
+"use client"
+
 import React from 'react';
 
 const HeroSection = () => {
+  // Static loading value for animation
+  const loading = 85;
+  
   // Helper to render the dashed lines from your provided code logic
   const DashedLine = ({ className }: { className: string }) => (
     <div className={`absolute flex overflow-hidden pointer-events-none ${className}`}>
@@ -68,43 +73,130 @@ const HeroSection = () => {
         {/* --- CARDS SECTION --- */}
         <div className="flex flex-wrap items-start gap-6 mt-16">
           
-          {/* Left Column: Small Cards */}
-          <div className="flex flex-col gap-4 w-full md:w-[320px]">
+          {/* --- DYNAMIC ANIMATION STAGE --- */}
+        <div className="relative h-[500px] w-full mt-10">
+          
+          {/* Animated SVG Connections (The "Running Lines") */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" fill="none">
+            {/* Connection from Card 1 & 2 (Left) to Center */}
+            <path d="M 280 100 Q 350 100 400 200" stroke="#CBD5E1" strokeWidth="1.5" strokeDasharray="5,5" />
+            <path d="M 280 200 Q 350 200 400 220" stroke="#CBD5E1" strokeWidth="1.5" strokeDasharray="5,5" />
+            
+            {/* Connection from Card 3 & 4 (Right) to Center */}
+            <path d="M 720 100 Q 650 100 600 200" stroke="#CBD5E1" strokeWidth="1.5" strokeDasharray="5,5" />
+            <path d="M 720 200 Q 650 200 600 220" stroke="#CBD5E1" strokeWidth="1.5" strokeDasharray="5,5" />
+            
+            {/* Animated "Data Particle" Lines */}
+            <path d="M 280 100 Q 350 100 400 200" stroke="#4182F9" strokeWidth="2" strokeDasharray="10,100" className="animate-[dash_3s_linear_infinite]" />
+            <path d="M 280 200 Q 350 200 400 220" stroke="#4182F9" strokeWidth="2" strokeDasharray="10,120" className="animate-[dash_4s_linear_infinite]" />
+            <path d="M 720 100 Q 650 100 600 200" stroke="#4182F9" strokeWidth="2" strokeDasharray="10,100" className="animate-[dash_3.5s_linear_infinite]" />
+            <path d="M 720 200 Q 650 200 600 220" stroke="#4182F9" strokeWidth="2" strokeDasharray="10,120" className="animate-[dash_4.5s_linear_infinite]" />
+          </svg>
+
+          {/* LEFT COLUMN: Input Nodes */}
+          <div className="absolute left-0 top-10 flex flex-col gap-8 z-10">
             {/* Card 1 */}
-            <div className="bg-white p-4 border border-slate-200 shadow-sm flex items-center gap-4">
-              <img 
-                src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" 
-                alt="user" className="w-10 h-10 rounded-full bg-yellow-100" 
-              />
-              <p className="text-[11px] leading-tight font-medium text-slate-800">
-                "Candidates wait 3 weeks... <br /> we're losing talent to competitors."
-              </p>
+            <div className="bg-white/80 backdrop-blur-sm p-4 border border-slate-200 rounded-xl shadow-xl shadow-slate-200/50 flex items-center gap-4 w-[300px] animate-bounce-slow">
+              <div className="w-12 h-12 rounded-full bg-orange-100 flex-shrink-0 flex items-center justify-center border-2 border-white overflow-hidden">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="avatar" />
+              </div>
+              <div>
+                <p className="text-[12px] font-bold text-slate-800 leading-tight">"Wait time is 3 weeks..."</p>
+                <p className="text-[10px] text-slate-400">Losing top talent to competitors</p>
+              </div>
             </div>
+
             {/* Card 2 */}
-            <div className="bg-white p-4 border border-slate-200 shadow-sm flex items-center gap-4">
-              <img 
-                src="https://api.dicebear.com/7.x/avataaars/svg?seed=Aria" 
-                alt="user" className="w-10 h-10 rounded-full bg-blue-100" 
-              />
-              <p className="text-[11px] leading-tight font-medium text-slate-800">
-                "I'm the CEO and doing HR? <br /> Zero time to read 200 resumes."
-              </p>
+            <div className="bg-white/80 backdrop-blur-sm p-4 border border-slate-200 rounded-xl shadow-xl shadow-slate-200/50 flex items-center gap-4 w-[300px] translate-x-4 animate-bounce-slower">
+              <div className="w-12 h-12 rounded-full bg-blue-100 flex-shrink-0 flex items-center justify-center border-2 border-white overflow-hidden">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Aria" alt="avatar" />
+              </div>
+              <div>
+                <p className="text-[12px] font-bold text-slate-800 leading-tight">"200 resumes to read."</p>
+                <p className="text-[10px] text-slate-400">CEO doing manual screening</p>
+              </div>
+            </div>
+
+            {/* Card 3 */}
+            <div className="bg-white/80 backdrop-blur-sm p-4 border absolute ml-[700px] border-slate-200 rounded-xl shadow-xl shadow-slate-200/50 flex items-center gap-4 w-[300px] translate-x-4 animate-bounce-slow">
+              <div className="w-12 h-12 rounded-full bg-purple-100 flex-shrink-0 flex items-center justify-center border-2 border-white overflow-hidden">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Priya" alt="avatar" />
+              </div>
+              <div>
+                <p className="text-[12px] font-bold text-slate-800 leading-tight">"I'm the CEO, product lead..."</p>
+                <p className="text-[10px] text-slate-400">Zero time to read resumes</p>
+              </div>
+            </div>
+
+            {/* Card 4 */}
+            <div className="bg-white/80 backdrop-blur-sm p-4 border absolute ml-[700px] mt-[170px] border-slate-200 rounded-xl shadow-xl shadow-slate-200/50 flex items-center gap-4 w-[300px] animate-bounce-slower">
+              <div className="w-12 h-12 rounded-full bg-green-100 flex-shrink-0 flex items-center justify-center border-2 border-white overflow-hidden">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Amit" alt="avatar" />
+              </div>
+              <div>
+                <p className="text-[12px] font-bold text-slate-800 leading-tight">"Best candidate accepted another offer"</p>
+                <p className="text-[10px] text-slate-400">This keeps happening</p>
+              </div>
             </div>
           </div>
 
-          {/* Center Column: Tall Empty Frame */}
-          <div className="bg-white border border-slate-200 w-full md:w-[280px] h-[320px] shadow-sm">
-            {/* Inner border for the "framed" look */}
-            <div className="m-2 border border-slate-100 h-[calc(100%-16px)]" />
+
+
+
+
+          {/* CENTER: The AI Engine Core */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-80 bg-white border-2 border-blue-100 rounded-2xl shadow-2xl z-20 overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-transparent" />
+            
+            {/* Scanning Laser Line */}
+            <div className="absolute w-full h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent animate-scan z-30 shadow-[0_0_15px_rgba(59,130,246,0.5)]" />
+            
+            {/* Inner "Logic" Content */}
+            <div className="p-6 flex flex-col h-full justify-between relative z-10">
+               <div className="space-y-3">
+                 {[1,2,3,4,5].map(i => (
+                    <div key={i} className="h-2 bg-slate-100 rounded-full overflow-hidden">
+                        <div className="h-full bg-blue-400/30 animate-pulse" style={{ width: `${Math.random() * 100}%` }} />
+                    </div>
+                 ))}
+               </div>
+               <div className="bg-blue-600 h-12 rounded-xl flex items-center justify-center text-white text-xs font-bold tracking-widest uppercase">
+                  AI Processing...
+               </div>
+            </div>
           </div>
 
-          {/* Right Column: Gray Box Placeholder */}
-          <div className="bg-white border border-slate-200 p-2 shadow-sm w-full md:w-[300px]">
-             <div className="bg-[#D9D9D9] w-full h-[180px]" />
-          </div>
+         
+       
 
         </div>
+        </div>
       </main>
+
+      {/* Tailwind Config for Custom Animations */}
+      <style jsx global>{`
+        @keyframes dash {
+          to { stroke-dashoffset: -100; }
+        }
+        @keyframes scan {
+          0% { top: 0%; opacity: 0; }
+          50% { opacity: 1; }
+          100% { top: 100%; opacity: 0; }
+        }
+        .animate-scan {
+          animation: scan 3s linear infinite;
+        }
+        .animate-bounce-slow {
+          animation: bounce 6s infinite ease-in-out;
+        }
+        .animate-bounce-slower {
+          animation: bounce 8s infinite ease-in-out;
+        }
+        @keyframes bounce {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-15px); }
+        }
+      `}</style>
     </div>
   );
 };

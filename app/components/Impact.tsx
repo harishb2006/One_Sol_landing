@@ -171,27 +171,18 @@ const ImpactResults = () => {
                       scale: cardScale,
                       y: cardY
                     }}
-                    whileHover={{ 
-                      y: -8,
-                      transition: { duration: 0.3 }
-                    }}
-                    className="group relative bg-white/80 backdrop-blur-sm border border-slate-200/50 rounded-2xl p-8 hover:shadow-2xl hover:border-blue-300/50 transition-all duration-300"
+                    className="relative bg-white/80 backdrop-blur-sm border border-slate-200/50 rounded-2xl p-8  transition-all duration-300"
                   >
-                    {/* Gradient Background on Hover */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${metric.gradient} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300`} />
-                    
                     {/* Icon Container */}
-                    <motion.div 
-                      className={`relative inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${metric.gradient} mb-6 group-hover:scale-110 transition-transform duration-300`}
-                      whileHover={{ rotate: [0, -10, 10, -10, 0] }}
-                      transition={{ duration: 0.5 }}
+                    <div 
+                      className={`relative inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${metric.gradient} mb-6`}
                     >
                       <IconComponent 
                         size={32} 
                         className="text-white" 
                         strokeWidth={2.5}
                       />
-                    </motion.div>
+                    </div>
 
                     {/* Title */}
                     <h3 className="text-slate-500 font-semibold text-sm uppercase tracking-wide mb-2">
@@ -207,12 +198,6 @@ const ImpactResults = () => {
                     <p className="text-slate-600 leading-relaxed text-sm md:text-base">
                       {metric.description}
                     </p>
-
-                    {/* Hover Accent Line */}
-                    <div className={`absolute top-0 left-0 w-2 h-0 bg-gradient-to-b ${metric.gradient} rounded-l-2xl group-hover:h-full transition-all duration-500`} />
-                    
-                    {/* Corner Accent */}
-                    <div className={`absolute top-0 right-0 w-0 h-2 bg-gradient-to-r ${metric.gradient} rounded-tr-2xl group-hover:w-full transition-all duration-500 delay-100`} />
                   </motion.div>
                 );
               })}
@@ -226,29 +211,7 @@ const ImpactResults = () => {
                 y: useTransform(scrollYProgress, [0.75, 0.85], [50, 0])
               }}
             >
-              <p className="text-slate-600 mb-8 text-lg">
-                Join <span className="font-bold text-slate-900">500+ companies</span> revolutionizing their hiring process
-              </p>
-              <motion.button 
-                className="bg-gradient-to-r from-[#4182F9] to-[#2563EB] text-white px-10 py-4 rounded-xl font-semibold hover:shadow-2xl transition-all duration-300 group relative overflow-hidden"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span className="relative z-10 flex items-center gap-2 justify-center">
-                  See How It Works
-                  <motion.span
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ 
-                      duration: 1.5,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                  >
-                    →
-                  </motion.span>
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-[#2563EB] to-[#4182F9] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </motion.button>
+            
             </motion.div>
           </div>
         </section>
