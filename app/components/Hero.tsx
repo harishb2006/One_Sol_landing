@@ -154,9 +154,9 @@ const HeroSection = () => {
             {/* Inner "Logic" Content */}
             <div className="p-4 sm:p-5 md:p-6 flex flex-col h-full justify-between relative z-10">
                <div className="space-y-2 sm:space-y-3">
-                 {[1,2,3,4,5].map(i => (
+                 {[45, 70, 55, 82, 63].map((width, i) => (
                     <div key={i} className="h-1.5 sm:h-2 bg-slate-100 rounded-full overflow-hidden">
-                        <div className="h-full bg-blue-400/30 animate-pulse" style={{ width: `${Math.random() * 100}%` }} />
+                        <div className="h-full bg-blue-400/30 animate-pulse" style={{ width: `${width}%` }} />
                     </div>
                  ))}
                </div>
