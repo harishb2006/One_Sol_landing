@@ -41,18 +41,18 @@ const FAQ = () => {
   };
 
   return (
-    <section className="py-24 px-6 bg-gradient-to-br from-[#1E5EFF] via-[#2563EB] to-[#1E40AF] relative overflow-hidden">
+    <section className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 bg-gradient-to-br from-[#1E5EFF] via-[#2563EB] to-[#1E40AF] relative overflow-hidden">
       {/* Background Pattern */}
   
       
       <div className="max-w-4xl mx-auto relative">
         {/* Header */}
-        <div className="mb-12">
+        <div className="mb-8 sm:mb-12">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-5xl md:text-6xl font-bold text-white mb-3"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3"
           >
              FAQ
           </motion.h2>
@@ -60,7 +60,7 @@ const FAQ = () => {
         </div>
 
         {/* FAQ Items */}
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           {FAQ_DATA.map((faq, index) => (
             <motion.div
               key={index}
@@ -72,9 +72,9 @@ const FAQ = () => {
             >
               <button
                 onClick={() => toggleQuestion(index)}
-                className="w-full flex items-center justify-between py-6 text-left group"
+                className="w-full flex items-center justify-between py-4 sm:py-6 text-left group"
               >
-                <span className="text-white text-lg md:text-xl font-semibold pr-8">
+                <span className="text-white text-base sm:text-lg md:text-xl font-semibold pr-4 sm:pr-8">
                   {faq.question}
                 </span>
                 <motion.div
@@ -82,7 +82,7 @@ const FAQ = () => {
                   transition={{ duration: 0.3 }}
                   className="flex-shrink-0"
                 >
-                  <ChevronDown className="w-6 h-6 text-white" />
+                  <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </motion.div>
               </button>
 
@@ -95,7 +95,7 @@ const FAQ = () => {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="pb-6 text-blue-100 text-base md:text-lg leading-relaxed">
+                    <div className="pb-4 sm:pb-6 text-blue-100 text-sm sm:text-base md:text-lg leading-relaxed">
                       {faq.answer}
                     </div>
                   </motion.div>
