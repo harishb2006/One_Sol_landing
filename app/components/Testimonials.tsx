@@ -38,17 +38,17 @@ const TESTIMONIALS: Testimonial[] = [
 
 const Testimonials = () => {
   return (
-    <section className="py-24 px-6 bg-[#F4F9FF]">
+    <section className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 bg-[#F4F9FF]">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 sm:mb-16">
          
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold text-slate-900 mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl font-serif text-slate-900 mb-4"
           >
             What our users are saying.
           </motion.h2>
@@ -56,7 +56,7 @@ const Testimonials = () => {
         </div>
 
         {/* Testimonials Grid - Masonry Style */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {TESTIMONIALS.map((testimonial, index) => (
             <motion.div
               key={index}
@@ -64,30 +64,30 @@ const Testimonials = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-[#F4F9FF] rounded-4xl p-6 shadow-sm hover:shadow-md transition-shadow border border-slate-200"
+              className="bg-[#F4F9FF] rounded-4xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow border border-slate-200"
             >
               {/* Avatar and Info */}
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-center gap-3 mb-3 sm:mb-4">
                 <img 
                   src={testimonial.avatar} 
                   alt={testimonial.name}
-                  className="w-12 h-12 rounded-full bg-slate-100"
+                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-slate-100"
                 />
                 <div>
-                  <h4 className="font-semibold text-slate-900">
+                  <h4 className="font-semibold text-slate-900 text-sm sm:text-base">
                     {testimonial.name}
                   </h4>
-                  <p className="text-sm text-slate-500">
+                  <p className="text-xs sm:text-sm text-slate-500">
                     {testimonial.role}
                   </p>
-                  <p className="text-xs text-slate-400">
+                  <p className="text-[10px] sm:text-xs text-slate-400">
                     {testimonial.company}
                   </p>
                 </div>
               </div>
 
               {/* Testimonial Text */}
-              <p className="text-slate-700 leading-relaxed">
+              <p className="text-slate-700 leading-relaxed text-sm sm:text-base">
                 {testimonial.text}
               </p>
             </motion.div>

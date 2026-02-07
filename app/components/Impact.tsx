@@ -56,6 +56,7 @@ const METRICS: Metric[] = [
     icon: DollarSign,
     color: "#10B981",
     gradient: "from-green-400 to-emerald-500",
+  
   },
   {
     title: "Quality Hires",
@@ -95,7 +96,7 @@ const ImpactResults = () => {
     <div ref={containerRef} className="relative h-[300vh]">
       {/* Sticky Container */}
       <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
-        <section className="w-full py-24 px-6 bg-gradient-to-br from-[#F4F9FF] via-white to-[#EEF6FF] relative">
+        <section className="w-full py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 bg-gradient-to-br from-[#F4F9FF] via-white to-[#EEF6FF] relative">
           {/* Subtle Background Pattern */}
           <div className="absolute inset-0 opacity-[0.03]" 
                style={{ backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
@@ -137,7 +138,7 @@ const ImpactResults = () => {
             
           
             {/* Metrics Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
               {METRICS.map((metric, index) => {
                 const IconComponent = metric.icon;
                 
@@ -171,31 +172,31 @@ const ImpactResults = () => {
                       scale: cardScale,
                       y: cardY
                     }}
-                    className="relative bg-white/80 backdrop-blur-sm border border-slate-200/50 rounded-2xl p-8  transition-all duration-300"
+                    className="relative bg-white/80 backdrop-blur-sm border border-slate-200/50 rounded-2xl p-4 sm:p-6 md:p-8 transition-all duration-300"
                   >
                     {/* Icon Container */}
                     <div 
-                      className={`relative inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${metric.gradient} mb-6`}
+                      className={`relative inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br ${metric.gradient} mb-4 sm:mb-6`}
                     >
                       <IconComponent 
-                        size={32} 
-                        className="text-white" 
+                        size={28} 
+                        className="text-white sm:w-7 sm:h-7 md:w-8 md:h-8" 
                         strokeWidth={2.5}
                       />
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-slate-500 font-semibold text-sm uppercase tracking-wide mb-2">
+                    <h3 className="text-slate-500 font-semibold text-xs sm:text-sm uppercase tracking-wide mb-2">
                       {metric.title}
                     </h3>
 
                     {/* Value */}
-                    <div className={`text-4xl md:text-5xl font-black bg-gradient-to-br ${metric.gradient} bg-clip-text text-transparent mb-4`}>
+                    <div className={`text-3xl sm:text-4xl md:text-5xl font-black bg-gradient-to-br ${metric.gradient} bg-clip-text text-transparent mb-3 sm:mb-4`}>
                       {metric.value}
                     </div>
 
                     {/* Description */}
-                    <p className="text-slate-600 leading-relaxed text-sm md:text-base">
+                    <p className="text-slate-600 leading-relaxed text-xs sm:text-sm md:text-base">
                       {metric.description}
                     </p>
                   </motion.div>
